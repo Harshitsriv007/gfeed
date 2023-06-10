@@ -10,26 +10,22 @@ import { Doughnut } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 const count = dataset.length;
 const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: [],
     datasets: [
       {
-        label: 'product import',
-        data: [count, 19, 3, 5, 2, 3],
+        label: 'product',
+        data: [count, 19, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
           'rgba(255, 206, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
         ],
         borderColor: [
           'rgba(255, 99, 132, 1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
+          'rgba(75, 192, 192, 0.2)',
         ],
         borderWidth: 1,
       },
@@ -43,17 +39,17 @@ const Dashboard = () =>
     // const Productcount = data.length;
     const Productcount=10;
     return <>
-        <div>
-            <h1> this is a dashboard!</h1>
-            <div>
-                {/* <h4>Total product count is - {Productcount}</h4> */}
-                <Doughnut data={data} />
-            </div>
-            <div>
-                <h4>Total Order count is - {Productcount}</h4>
-            </div>
-            <div>
-                <h4>Total Credits count is - {Productcount}</h4>
+        <div className="container col-sm-12">
+            <div className="row">
+                <div className="col-sm-5 productdonut" style={{width:"33%",height:"200px"}}>
+                    <Doughnut data={data} />
+                </div>
+                <div className="col-sm-5 orderdonut" style={{width:"33%",height:"200px"}}>
+                    <Doughnut data={data} />
+                </div>
+                <div className="col-sm-5  creditdonut" style={{width:"33%",height:"200px"}}>
+                    <Doughnut data={data} />
+                </div>
             </div>
         </div>
         <div className="container promote_section1">
