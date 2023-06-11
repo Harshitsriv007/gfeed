@@ -1,7 +1,7 @@
 import React from "react";
 import dataset from "./data.json";
 import Image1 from "../../images/imge1.jpg";
-import Image2 from "../../images/image2.jpg";
+// import Image2 from "../../images/image2.jpg";
 import Image3 from "../../images/image3.jpg.avif";
 import "./dashboard.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -37,7 +37,8 @@ const data = {
 const Dashboard = () =>
 {
     // const Productcount = data.length;
-    const Productcount=10;
+    // const Productcount=10;
+    var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
     return <>
         <div className="container col-sm-12">
             <div className="row">
@@ -59,46 +60,38 @@ const Dashboard = () =>
                         <div className="col-wm-12">
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <img classNmae="bannerImage" src={Image1} alt="banner"/>
+                                    <img className="bannerImage" src={Image1} alt="banner"/>
                                 </div>
                                 <div className="col-sm-6">
-                                    <img classNmae="bannerImage" src={Image1} alt="banner"/>
+                                    <img className="bannerImage" src={Image1} alt="banner"/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-wm-12">
+                        <div className="col-wm-12 second_promotions">
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <img  classNmae="promotionsImage" src={Image3} alt="promotions"/>
+                                    <img  className="promotionsImage" src={Image3} alt="promotions"/>
                                 </div>
                                 <div className="col-sm-6">
-                                    <img classNmae="bannerImage" src={Image1} alt="banner"/>
+                                    <img className="bannerImage" src={Image1} alt="banner"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="col-sm-4">
-                    <table style={{border:"2px solid black",height:"20em"}}>
-                        <tr >
-                            <td>Name:</td>
-                            <th>Harshit</th>
-                            <td>Plan:</td>
-                            <th>Gold</th>
-                        </tr>
-                        <tr >
-                            <td>Name:</td>
-                            <th>Harshit</th>
-                            <td>Plan:</td>
-                            <th>Gold</th>
-                        </tr>
-                        <tr >
-                            <td>Name:</td>
-                            <th>Harshit</th>
-                            <td>Plan:</td>
-                            <th>Gold</th>
-                        </tr>
-                    </table>
+                <div className="col-sm-4 plan">
+                    <div className="plan_1">
+                        Active Plan
+                    </div>
+                    <div className="plan_2">
+                        Plan : Gold
+                    </div>
+                    <div className="plan_3">
+                        Plan started Date : {d}
+                    </div>
+                    <div className="plan_4">
+                        Plan Ending Date : {d}
+                    </div>
                 </div>
             </div>
             <div className="container">
