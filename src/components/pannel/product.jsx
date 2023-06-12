@@ -11,7 +11,7 @@ return (
                 <Table 
                     dataSource={Data} 
                     columns={columns} 
-                    pagination={{ pageSize: 10, total: 50, showSizeChanger: true }} 
+                    pagination={{ pageSize: 10, total: Data.length, showSizeChanger: true }} 
                 /> 
             </div> 
         </div> 
