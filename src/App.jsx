@@ -36,13 +36,11 @@ function App(props) {
       //   if(token){
       //   localStorage.setItem('token', token);
       //   }
-
       // <Navigate to="Dashboard" replace={true}/>
       // }
       // else
       // {
       //   <Navigate to="/" replace={true}/>
-
       //  }
   },[handle]);
   return (
