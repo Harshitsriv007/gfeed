@@ -21,3 +21,7 @@
     width: 6%;
     /* height: auto; */
 }
+.header span
+{
+    margin: 1% 0% 0% 1%;
+}
