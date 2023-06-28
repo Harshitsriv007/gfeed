@@ -1,13 +1,6 @@
-// import { Replay } from "@mui/icons-material";
 import {useState,useEffect} from "react";
-// import Loginroute from "../../routing/loginroute";
-// import { Link } from "react-router-dom";
-// // import {BrowserRouter,Routes,Route} from "react-router-dom";
-// import Approute from "../../routing/approute";
-
-
-import { Routes,Route,createSearchParams, useNavigate,useLocation,Navigate } from 'react-router-dom';
-// import Loginroute from "../../routing/loginroute";
+import { createSearchParams, useNavigate,useLocation,Navigate } from 'react-router-dom';
+import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
@@ -65,13 +58,24 @@ function Login() {
    
 
   return (
-    <div>
-      {/* Login form */}
-         <div><label>UserName : </label><input type="text" onChange={Input} name="username"/></div>
-         <div><label>Password : </label><input type="password" onChange={Input} name="password"/></div>
-         <button name = "Dashboard" type="submit" onClick={(e)=>{Home(e)}}>Dashboard</button>
-         {(!allowredirect)??<div>{errorshow.msg}</div>}
-    </div>
+    <div className="login-container">
+    <form className="login-form" onSubmit={(e)=>{Home(e)}}>
+      <h2 className="login-title">Log in to Your Account</h2>
+      <input
+        type="email"
+        placeholder="Email"
+        name="username"
+        onChange={Input}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        onChange={Input}
+        name="password"
+      />
+      <button type="submit" name = "Dashboard" onClick={(e)=>{Home(e)}}>Log In</button>
+    </form>
+  </div>
   );
 }
 
