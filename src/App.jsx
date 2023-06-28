@@ -55,6 +55,7 @@ function App(props) {
     <Route path="/login" element={<Login />} />
     <Route path="/" element={<Navigate to="/login" replace={true}/>}/>
     <Route path="*" element={<Navigate to="/login" replace={true}/>}/>
+    <Route path="/gfeed/" element={<Navigate to="/login" replace={true}/>} />
 
   </Routes>
   );
