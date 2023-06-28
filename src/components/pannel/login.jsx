@@ -23,19 +23,19 @@ function Login() {
     {
         setCredenatils(credentails => ({ ...credentails, [target.name]: target.value }));
     }
-    const goToPosts = () =>
-    {
-       navigate({
-                    pathname:"dashboard",
-                    search:createSearchParams({
-                      user_token:"sabaoon"
-                    }).toString()
-                });
-    // navigate({
-    //   pathname: '/posts',
-    //   search: '?sort=date&order=newest',
-    // });
-  }
+  //   const goToPosts = () =>
+  //   {
+  //      navigate({
+  //                   pathname:"dashboard",
+  //                   search:createSearchParams({
+  //                     user_token:"sabaoon"
+  //                   }).toString()
+  //               });
+  //   // navigate({
+  //   //   pathname: '/posts',
+  //   //   search: '?sort=date&order=newest',
+  //   // });
+  // }
     const Home = (e) =>
     {
         let hasuserkey = credentails.hasOwnProperty('username'); 
@@ -63,13 +63,13 @@ function Login() {
 
                 //   {/* <Route path="*" element={<Navigate to="/login" replace={true}/>}/> */}
                 // </Routes>
-                <Navigator to="dashboard" />
-                // navigate({
-                //     pathname:"dashboard",
-                //     search:createSearchParams({
-                //       user_token:"sabaoon"
-                //     }).toString()
-                // });
+                // <Navigator to="dashboard" />
+                navigate({
+                    pathname:"dashboard",
+                    search:createSearchParams({
+                      user_token:"sabaoon"
+                    }).toString()
+                });
             }
         }
     }
