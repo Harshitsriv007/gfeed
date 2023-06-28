@@ -18,5 +18,6 @@
 {
     display:flex;
     float: inline-end;
+    width: 6%;
     /* height: auto; */
 }
