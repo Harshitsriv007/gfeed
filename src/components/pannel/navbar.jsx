@@ -8,7 +8,7 @@ const sidebarNavItems = [
         display: 'Dashboard',
         icon: <i className='bx bx-home'></i>,
         to: '',
-        section: '',
+        section: 'dashboard',
     },
     {
         display: 'Manage Product',
@@ -59,16 +59,19 @@ const Navbar = () => {
 
     // change active index
     useEffect(() => {
-        const curPath = window.location.pathname.split('/')[0];
-        if(curPath && curPath !== 'undefined')
-        {
-        const curPath = window.location.pathname.split('/dashboard/')[1];
-        console.log(curPath);
-        const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
-        setActiveIndex(curPath.length === 0 ? 0 : activeItem);
-        }
-    }, [location]);
+        const search = location;
 
+        const array = search['pathname'].split("/");
+        const curPath = array.pop();
+        console.log(curPath);
+        if(curPath)
+        {
+            const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
+            setActiveIndex(curPath.length === 0 ? 0 : activeItem);
+        }
+
+    }, [location]);
+    
     return <div className='sidebar'>
         <div className="sidebar__logo">
             Gfeed App

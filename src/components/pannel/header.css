@@ -6,9 +6,17 @@
 .header
 {
     background-color: lightgray;
+    padding-bottom: 15px;
+
 }
 .borderline
 {
     background-color: black;
     border: 1px solid black;
+}
+.logout_button
+{
+    display:flex;
+    float: inline-end;
+    /* height: auto; */
 }

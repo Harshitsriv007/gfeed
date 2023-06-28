@@ -14,11 +14,13 @@ const Header =() =>{
 
     }
 
-    return <div className="header">
+    return <React.Fragment><div className="header">
     <span >loading.....</span>
-    <Button type="submit" onClick={()=>(logout())}>Logout</Button>
-    <div className="borderline"></div>
+    <Button className = "logout_button" type="submit" onClick={()=>(logout())}>Logout</Button>
     </div>
+    <div className="borderline"></div>
+    </React.Fragment>
+
 }
 
 export default Header;
