@@ -6,7 +6,7 @@ import {useState,useEffect} from "react";
 // import Approute from "../../routing/approute";
 
 
-import { createSearchParams, useNavigate } from 'react-router-dom';
+import { Routes,Route,createSearchParams, useNavigate } from 'react-router-dom';
 // import Loginroute from "../../routing/loginroute";
 
 function Login() {
@@ -23,6 +23,19 @@ function Login() {
     {
         setCredenatils(credentails => ({ ...credentails, [target.name]: target.value }));
     }
+    const goToPosts = () =>
+    {
+       navigate({
+                    pathname:"dashboard",
+                    search:createSearchParams({
+                      user_token:"sabaoon"
+                    }).toString()
+                });
+    // navigate({
+    //   pathname: '/posts',
+    //   search: '?sort=date&order=newest',
+    // });
+  }
     const Home = (e) =>
     {
         let hasuserkey = credentails.hasOwnProperty('username'); 
@@ -45,12 +58,18 @@ function Login() {
             if (hasuserkey && haspasswordkey) {
                 setAllowredirect(true);
                 localStorage.setItem('user', true);
-                navigate({
-                    pathname:"dashboard",
-                    search:createSearchParams({
-                      user_token:"sabaoon"
-                    }).toString()
-                });
+                // <Routes>
+                //   <Route path="/login" element={goToPosts()}/>
+
+                //   {/* <Route path="*" element={<Navigate to="/login" replace={true}/>}/> */}
+                // </Routes>
+                <Navigator to="dashboard" />
+                // navigate({
+                //     pathname:"dashboard",
+                //     search:createSearchParams({
+                //       user_token:"sabaoon"
+                //     }).toString()
+                // });
             }
         }
     }
