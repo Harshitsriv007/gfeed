@@ -52,7 +52,10 @@ function App(props) {
       <Route path="config" element={<Configuration/>}/>
       <Route path="plan" element={<Plan/>}/>
     </Route>
-    <Route path="/" element={<Login />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/" element={<Navigate to="/login" replace={true}/>}/>
+    <Route path="*" element={<Navigate to="/login" replace={true}/>}/>
+
   </Routes>
   );
 }
