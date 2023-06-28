@@ -15,7 +15,6 @@ function App(props) {
   const location = useLocation();
   const { handle } = useParams();
   let [searchParams, setSearchParams] = useSearchParams();
-  // const URLSearch = URLSearchParams();
   const navigate = useNavigate();
 
   useEffect(()=>
@@ -25,7 +24,10 @@ function App(props) {
     // let { user_token } = params; 
     // const tokendata=location.state.user_token?location.state.user_token:'';
     // const tokendata = AuthToken.get("user_token");
-    <Navigate to="/login" from={search['pathname']} replace={true}/>
+    if(search['pathname'] === '/gfeed/')
+    {
+    <Navigate to="/app" from={search['pathname']} replace={true}/>
+    }
     console.log(search['pathname']);
       // let User = localStorage.getItem('user');
       // if(tokendata)
@@ -42,10 +44,10 @@ function App(props) {
       // {
       //   <Navigate to="/" replace={true}/>
       //  }
-  },[handle]);
+  },[]);
   return (
       <Routes>
-    <Route path="Dashboard" element={<Approute />}>
+    <Route path="app/Dashboard" element={<Approute />}>
       <Route index element={<Dashboard/>} />
       <Route path='profile'element={<Profile />} />
       <Route path='product' element={<Product />} />
@@ -53,10 +55,11 @@ function App(props) {
       <Route path="config" element={<Configuration/>}/>
       <Route path="plan" element={<Plan/>}/>
     </Route>
-    <Route path="/login" element={<Login />} />
-    <Route path="/" element={<Navigate to="/login" replace={true}/>}/>
-    <Route path="*" element={<Navigate to="/login" replace={true}/>}/>
-    {/* <Route path="/gfeed/" element={<Navigate to="/login" replace={true}/>} /> */}
+    {/* <Route path="/" element={<Login />} /> */}
+    <Route path="/app" element={<Login />} />
+    {/* <Route path="/" element={<Navigate to="/login" replace={true}/>}/> */}
+    <Route path="*" element={<Navigate to="/app" replace={true}/>}/>
+     <Route path="/gfeed/" element={<Navigate to="/app" replace={true}/>} />
 
   </Routes>
   );

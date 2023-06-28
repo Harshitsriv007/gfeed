@@ -6,7 +6,7 @@ import {useState,useEffect} from "react";
 // import Approute from "../../routing/approute";
 
 
-import { Routes,Route,createSearchParams, useNavigate } from 'react-router-dom';
+import { Routes,Route,createSearchParams, useNavigate,useLocation,Navigate } from 'react-router-dom';
 // import Loginroute from "../../routing/loginroute";
 
 function Login() {
@@ -14,28 +14,44 @@ function Login() {
     const [allowredirect, setAllowredirect] = useState(false);
     const [credentails,setCredenatils] = useState("");
     const [errorshow , setErrorshow] = useState("");
+    const location = useLocation();
+
     
     
     useEffect(() => {
-      }, [errorshow]);
+        const search = location;
+        // const name = new URLSearch(search).get('user_token');
+        // let { user_token } = params; 
+        // const tokendata=location.state.user_token?location.state.user_token:'';
+        // const tokendata = AuthToken.get("user_token");
+    
+        if(search['pathname'] === '/app')
+        {
+        <Navigate to="Dashboard" replace={true}/>
+        }
+        console.log(search['pathname']);
+          // let User = localStorage.getItem('user');
+          // if(tokendata)
+          // {
+          //   setToken(tokendata);
+          // }
+          // if(User){
+          //   if(token){
+          //   localStorage.setItem('token', token);
+          //   }
+          // <Navigate to="Dashboard" replace={true}/>
+          // }
+          // else
+          // {
+          //   <Navigate to="/" replace={true}/>
+          //  }
+      },[]);
+ 
 
     const Input = ({ target }) =>
     {
         setCredenatils(credentails => ({ ...credentails, [target.name]: target.value }));
     }
-  //   const goToPosts = () =>
-  //   {
-  //      navigate({
-  //                   pathname:"dashboard",
-  //                   search:createSearchParams({
-  //                     user_token:"sabaoon"
-  //                   }).toString()
-  //               });
-  //   // navigate({
-  //   //   pathname: '/posts',
-  //   //   search: '?sort=date&order=newest',
-  //   // });
-  // }
     const Home = (e) =>
     {
         let hasuserkey = credentails.hasOwnProperty('username'); 
