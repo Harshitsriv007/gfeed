@@ -20,30 +20,12 @@ function App(props) {
   useEffect(()=>
   {
     const search = location;
-    // const name = new URLSearch(search).get('user_token');
-    // let { user_token } = params; 
-    // const tokendata=location.state.user_token?location.state.user_token:'';
-    // const tokendata = AuthToken.get("user_token");
     if(search['pathname'] === '/gfeed/')
     {
     <Navigate to="/app" from={search['pathname']} replace={true}/>
     }
     console.log(search['pathname']);
-      // let User = localStorage.getItem('user');
-      // if(tokendata)
-      // {
-      //   setToken(tokendata);
-      // }
-      // if(User){
-      //   if(token){
-      //   localStorage.setItem('token', token);
-      //   }
-      // <Navigate to="Dashboard" replace={true}/>
-      // }
-      // else
-      // {
-      //   <Navigate to="/" replace={true}/>
-      //  }
+
   },[]);
   return (
       <Routes>
@@ -55,9 +37,7 @@ function App(props) {
       <Route path="config" element={<Configuration/>}/>
       <Route path="plan" element={<Plan/>}/>
     </Route>
-    {/* <Route path="/" element={<Login />} /> */}
     <Route path="/app" element={<Login />} />
-    {/* <Route path="/" element={<Navigate to="/login" replace={true}/>}/> */}
     <Route path="*" element={<Navigate to="/app" replace={true}/>}/>
      <Route path="/gfeed/" element={<Navigate to="/app" replace={true}/>} />
 

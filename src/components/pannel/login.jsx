@@ -20,31 +20,13 @@ function Login() {
     
     useEffect(() => {
         const search = location;
-        // const name = new URLSearch(search).get('user_token');
-        // let { user_token } = params; 
-        // const tokendata=location.state.user_token?location.state.user_token:'';
-        // const tokendata = AuthToken.get("user_token");
     
         if(search['pathname'] === '/app')
         {
         <Navigate to="Dashboard" replace={true}/>
         }
         console.log(search['pathname']);
-          // let User = localStorage.getItem('user');
-          // if(tokendata)
-          // {
-          //   setToken(tokendata);
-          // }
-          // if(User){
-          //   if(token){
-          //   localStorage.setItem('token', token);
-          //   }
-          // <Navigate to="Dashboard" replace={true}/>
-          // }
-          // else
-          // {
-          //   <Navigate to="/" replace={true}/>
-          //  }
+      
       },[]);
  
 
@@ -59,9 +41,6 @@ function Login() {
         if((!hasuserkey || !haspasswordkey) && e.target.type === 'submit')
         {
             var msg="error occured !";
-            // setErrorshow({ ...errorshow,msg });
-
-            // setErrorshow({...errorshow,["msg"]:msg});
             setErrorshow(msg);
             console.log(msg);
             console.log(errorshow);
@@ -74,12 +53,6 @@ function Login() {
             if (hasuserkey && haspasswordkey) {
                 setAllowredirect(true);
                 localStorage.setItem('user', true);
-                // <Routes>
-                //   <Route path="/login" element={goToPosts()}/>
-
-                //   {/* <Route path="*" element={<Navigate to="/login" replace={true}/>}/> */}
-                // </Routes>
-                // <Navigator to="dashboard" />
                 navigate({
                     pathname:"dashboard",
                     search:createSearchParams({

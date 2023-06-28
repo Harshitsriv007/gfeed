@@ -14,7 +14,6 @@ const Header =() =>{
 
     }
 
-
     return <div className="header">
     <span >loading.....</span>
     <Button type="submit" onClick={()=>(logout())}>Logout</Button>
