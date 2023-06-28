@@ -43,7 +43,7 @@ const Plan = () =>
   removeArrowOnDeviceType={["tablet", "mobile"]}
   deviceType={"desktop"}
   dotListClass="custom-dot-list-style"
-  itemClass="carousel-item-padding-40-px"
+  // itemClass="carousel-item-padding-40-px"
 //   centerMode={true}
 >
   <div>

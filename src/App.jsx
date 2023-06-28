@@ -1,26 +1,61 @@
-import React from "react";
-import Approute from "./routing/approute.jsx";
-// import Blank from "./pages/Blank.jsx";
-import Dashboard from "./components/pannel/dashboard.jsx";
-import Product from "./components/pannel/product.jsx";
-import Profile from "./components/pannel/profile.jsx";
-import Order from "./components/pannel/order.jsx";
-import Config from "./components/pannel/configuration.jsx";
-import Plan from "./components/pannel/plan.jsx";
-import { Routes,Route } from "react-router-dom";
+import React, { useEffect,useState } from "react";
 
- const App =() => {
+import {Route, Routes, Navigate,useLocation,useParams, useSearchParams } from 'react-router-dom';
+import Login from "./components/pannel/login";
+import Profile from "./components/pannel/profile";
+import Product from "./components/pannel/product";
+import Approute from "./routing/approute";
+import Dashboard from './components/pannel/dashboard';
+import Order from "./components/pannel/order";
+import Configuration from "./components/pannel/configuration";
+import Plan from "./components/pannel/plan";
+
+function App(props) {
+  const [token,setToken] = useState([]);
+  const location = useLocation();
+  const { handle } = useParams();
+  let [searchParams, setSearchParams] = useSearchParams();
+  // const URLSearch = URLSearchParams();
+  useEffect(()=>
+  {
+    const search = location;
+    // const name = new URLSearch(search).get('user_token');
+    // let { user_token } = params; 
+    // const tokendata=location.state.user_token?location.state.user_token:'';
+    // const tokendata = AuthToken.get("user_token");
+    console.log(search);
+      // let User = localStorage.getItem('user');
+      // if(tokendata)
+      // {
+      //   setToken(tokendata);
+      // }
+      // if(User){
+      //   if(token){
+      //   localStorage.setItem('token', token);
+      //   }
+
+      // <Navigate to="Dashboard" replace={true}/>
+      // }
+      // else
+      // {
+      //   <Navigate to="/" replace={true}/>
+
+      //  }
+  },[handle]);
   return (
-            <Routes>
-                <Route path='/' element={<Approute />}>
-                    <Route index element={<Dashboard />} />
-                    <Route path='/profile' element={<Profile />} />
-                    <Route path='/product' element={<Product />} />
-                    <Route path='/order' element={<Order />} />
-                    <Route path='/plan' element={<Plan />} />
-                    <Route path='/config' element={<Config />} />
-                </Route>
-            </Routes>
-  )
+      <Routes>
+    <Route path="Dashboard" element={<Approute />}>
+      <Route index element={<Dashboard/>} />
+      <Route path='profile'element={<Profile />} />
+      <Route path='product' element={<Product />} />
+      <Route path="order" element={<Order />} />
+      <Route path="config" element={<Configuration/>}/>
+      <Route path="plan" element={<Plan/>}/>
+    </Route>
+    <Route path="/" element={<Login />} />
+  </Routes>
+  );
 }
+
 export default App;
+

@@ -20,7 +20,7 @@
         },
         {
             "title":"ABC1",
-            "id":"1",
+            "id":"2",
             "sku":"1",
             "price":200,
             "image":"1.jpg",
@@ -30,7 +30,7 @@
         },
         {
             "title":"ABC1",
-            "id":"1",
+            "id":"3",
             "sku":"1",
             "price":200,
             "image":"1.jpg",
@@ -40,7 +40,7 @@
         },
         {
             "title":"ABC1",
-            "id":"1",
+            "id":"4",
             "sku":"1",
             "price":200,
             "image":"1.jpg",

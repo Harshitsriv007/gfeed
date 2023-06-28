@@ -7,37 +7,37 @@ const sidebarNavItems = [
     {
         display: 'Dashboard',
         icon: <i className='bx bx-home'></i>,
-        to: '/',
-        section: ''
+        to: '',
+        section: '',
     },
     {
         display: 'Manage Product',
         icon: <i className='bx bx-star'></i>,
-        to: '/product',
+        to: 'product',
         section: 'product'
     },
     {
         display: 'Profile',
         icon: <i className='bx bx-calendar'></i>,
-        to: '/profile',
+        to: 'profile',
         section: 'profile'
     },
     {
         display: 'Order',
         icon: <i className='bx bx-user'></i>,
-        to: '/order',
+        to: 'order',
         section: 'order'
     },
     {
         display: 'Config',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/config',
+        to: 'config',
         section: 'config'
     },
     {
         display: 'Plan',
         icon: <i className='bx bx-receipt'></i>,
-        to: '/plan',
+        to: 'plan',
         section: 'plan'
     },
 ]
@@ -59,9 +59,14 @@ const Navbar = () => {
 
     // change active index
     useEffect(() => {
-        const curPath = window.location.pathname.split('/')[1];
+        const curPath = window.location.pathname.split('/')[0];
+        if(curPath && curPath !== 'undefined')
+        {
+        const curPath = window.location.pathname.split('/dashboard/')[1];
+        console.log(curPath);
         const activeItem = sidebarNavItems.findIndex(item => item.section === curPath);
         setActiveIndex(curPath.length === 0 ? 0 : activeItem);
+        }
     }, [location]);
 
     return <div className='sidebar'>
