@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 
-import {Route, Routes, Navigate,useLocation,useParams, useSearchParams } from 'react-router-dom';
+import {Route, Routes,useNavigate, Navigate,useLocation,useParams, useSearchParams } from 'react-router-dom';
 import Login from "./components/pannel/login";
 import Profile from "./components/pannel/profile";
 import Product from "./components/pannel/product";
@@ -16,6 +16,8 @@ function App(props) {
   const { handle } = useParams();
   let [searchParams, setSearchParams] = useSearchParams();
   // const URLSearch = URLSearchParams();
+  const navigate = useNavigate();
+
   useEffect(()=>
   {
     const search = location;
@@ -23,7 +25,8 @@ function App(props) {
     // let { user_token } = params; 
     // const tokendata=location.state.user_token?location.state.user_token:'';
     // const tokendata = AuthToken.get("user_token");
-    console.log(search);
+    <Navigate to="/login" from={search['pathname']} replace={true}/>
+    console.log(search['pathname']);
       // let User = localStorage.getItem('user');
       // if(tokendata)
       // {
